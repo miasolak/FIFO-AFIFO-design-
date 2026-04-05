@@ -1,57 +1,63 @@
 # FIFO and Asynchronous FIFO Design
 
-This repository contains implementations and verification files for a synchronous FIFO and an asynchronous FIFO (AFIFO) written in SystemVerilog/Verilog.
+This project implements and verifies both a synchronous FIFO and an asynchronous FIFO (AFIFO) in Verilog/SystemVerilog.
 
 ## Project Overview
 
-The project includes:
+The repository includes:
 - synchronous FIFO design
 - asynchronous FIFO design
 - corresponding testbenches
 - simulation and synthesis scripts
 
-The goal of the project is to verify correct FIFO behavior, including data storage and retrieval, as well as handling of full and empty conditions in both synchronous and asynchronous designs.
+The goal of the project is to verify correct FIFO behavior, including data storage and retrieval, as well as full and empty flag handling in both synchronous and asynchronous designs.
 
-## Repository Structure
+## Implemented Designs
 
-```text
-afifo/
-  dv/      # testbench for asynchronous FIFO
-  rtl/     # RTL implementation of asynchronous FIFO
-
-fifo/
-  dv/      # testbench for synchronous FIFO
-  rtl/     # RTL implementation of synchronous FIFO
-
-Makefile   # commands for linting, simulation, and synthesis
-synth.tcl  # synthesis script
-```
-Implemented Designs
-Synchronous FIFO
-
+### Synchronous FIFO
 The synchronous FIFO uses a single clock domain for both read and write operations.
 
-Asynchronous FIFO
-
+### Asynchronous FIFO
 The asynchronous FIFO uses separate clock domains for read and write operations, making it suitable for clock domain crossing scenarios.
 
-Verification
+## Verification
 
 Testbenches are provided for both designs:
+- synchronous FIFO testbench: `fifo/dv/FIFO_tb.sv`
+- asynchronous FIFO testbench: `afifo/dv/AFIFO_tb.sv`
 
-synchronous FIFO testbench: fifo/dv/FIFO_tb.sv
-asynchronous FIFO testbench: afifo/dv/AFIFO_tb.sv
-### Available Commands
-Linting with Verilator
+## Available Commands
+
+### Linting with Verilator
+
+```bash
 make lint_tb
 make lint_dut
-lint_tb runs linting with the testbench as the top module
-lint_dut runs linting with the DUT as the top module
+```
+
+- `lint_tb` runs linting with the testbench as the top module
+- `lint_dut` runs linting with the DUT as the top module
+
 ### Simulation with Verilator
+
+```bash
 make verilator
+```
+
 ### Synthesis with Yosys
+
+```bash
 make synth_yosys
+```
+
 ### Synthesis with Vivado
+
+```bash
 make synth_vivado
-### Run everything
+```
+
+### Run Everything
+
+```bash
 make all
+```
