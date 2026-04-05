@@ -41,17 +41,17 @@ Testbenches are provided for both designs:
 
 synchronous FIFO testbench: fifo/dv/FIFO_tb.sv
 asynchronous FIFO testbench: afifo/dv/AFIFO_tb.sv
-##Available Commands
+## Available Commands
 Linting with Verilator
 make lint_tb
 make lint_dut
 lint_tb runs linting with the testbench as the top module
 lint_dut runs linting with the DUT as the top module
-##Simulation with Verilator
+## Simulation with Verilator
 make verilator
-##Synthesis with Yosys
+## Synthesis with Yosys
 make synth_yosys
-##Synthesis with Vivado
+## Synthesis with Vivado
 make synth_vivado
-##Run everything
+## Run everything
 make all
