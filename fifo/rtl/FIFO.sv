@@ -5,8 +5,8 @@ module FIFO #(
 )(
     input clk, rst_n,
     input [DSIZE-1:0] wr_data_i,
-    input wr_inc,  // Request to write
-    input rd_inc,  // Request to read
+    input wr_inc,  //Request to write
+    input rd_inc,  //Request to read
     output reg [DSIZE-1:0] rd_data_o,
     output reg wr_full_o,
     output reg rd_empty_o
