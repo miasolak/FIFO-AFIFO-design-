@@ -1,36 +1,57 @@
-# fifo_test
-Jednostavan testbench za FIFO i AFIFO bafere.
+# FIFO and Asynchronous FIFO Design
 
-## Organizacija
-Vas kod za FIFO je potrebno staviti u folder [fifo/rtl](./fifo/rtl/).
-RTL kod za AFIFO je potrebno staviti u folder [afifo/rtl](./afifo/rtl/).
+This repository contains implementations and verification files for a synchronous FIFO and an asynchronous FIFO (AFIFO) written in SystemVerilog/Verilog.
 
-Jednostavan testbenc za FIFO se nalazi [ovde](./fifo/dv/FIFO_tb.sv), dok se za AFIFO nalazi [ovde](./afifo/dv/AFIFO_tb.sv)
+## Project Overview
 
-## Simulacije, linter i sinteza
+The project includes:
+- synchronous FIFO design
+- asynchronous FIFO design
+- corresponding testbenches
+- simulation and synthesis scripts
 
-- Za Verilator linter pokrenuti:
-```bash
-$ make lint_tb  # za TB kao top modul
-$ make lint_dut # za DUT kao top modul
+The goal of the project is to verify correct FIFO behavior, including data storage and retrieval, as well as handling of full and empty conditions in both synchronous and asynchronous designs.
+
+## Repository Structure
+
+```text
+afifo/
+  dv/      # testbench for asynchronous FIFO
+  rtl/     # RTL implementation of asynchronous FIFO
+
+fifo/
+  dv/      # testbench for synchronous FIFO
+  rtl/     # RTL implementation of synchronous FIFO
+
+Makefile   # commands for linting, simulation, and synthesis
+synth.tcl  # synthesis script
 ```
+Implemented Designs
+Synchronous FIFO
 
-- Za simulaciju pomocu Verilator-a pokrenuti:
-```bash
-$ make verilator
-```
+The synchronous FIFO uses a single clock domain for both read and write operations.
 
-- Za genericku sitezu pomocu yosys-a pokrenuti:
-```bash
-$ make synth_yosys
-```
+Asynchronous FIFO
 
-- Za sitezu pomocu vivado-a pokrenuti:
-```bash
-$ make synth_vivado
-```
+The asynchronous FIFO uses separate clock domains for read and write operations, making it suitable for clock domain crossing scenarios.
 
-- Za pokretanje svega odjednom mozete pokrenuti:
-```bash
-$ make all
-```
+Verification
+
+Testbenches are provided for both designs:
+
+synchronous FIFO testbench: fifo/dv/FIFO_tb.sv
+asynchronous FIFO testbench: afifo/dv/AFIFO_tb.sv
+Available Commands
+Linting with Verilator
+make lint_tb
+make lint_dut
+lint_tb runs linting with the testbench as the top module
+lint_dut runs linting with the DUT as the top module
+Simulation with Verilator
+make verilator
+Synthesis with Yosys
+make synth_yosys
+Synthesis with Vivado
+make synth_vivado
+Run everything
+make all
