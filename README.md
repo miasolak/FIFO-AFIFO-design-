@@ -1,6 +1,6 @@
 # FIFO and Asynchronous FIFO Design
 
-This project implements and verifies both a synchronous FIFO and an asynchronous FIFO (AFIFO) in Verilog/SystemVerilog.
+This project implements and verifies both a synchronous FIFO and an asynchronous FIFO (AFIFO) in SystemVerilog.
 
 ## Project Overview
 
