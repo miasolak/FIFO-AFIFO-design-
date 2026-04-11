@@ -24,7 +24,7 @@ module WRITE_LOGIC #(
      end
     assign wr_addr = wr_bin[ASIZE-1:0]; 
     assign wr_bin1 = wr_bin + ({(ASIZE+1){wr_inc}} & { (ASIZE+1){~wr_full_o} });
-    assign wr_gray1 = (wr_bin1 >> 1) ^ wr_bin1; //da li ovde moze bez assign nego sve u always????
+    assign wr_gray1 = (wr_bin1 >> 1) ^ wr_bin1; 
     
     assign wr_full_val = ((wr_gray1[ASIZE]!= w2_rd_ptr[ASIZE] ) && (wr_gray1[ASIZE-1] != w2_rd_ptr[ASIZE-1]) && (wr_gray1[ASIZE-2:0]== w2_rd_ptr[ASIZE-2:0]));
     
